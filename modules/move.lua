@@ -18,18 +18,21 @@ end
 --DigFunctions--
 function digFront()
     turtle.dig()
+	turtle.suck()
 end
 
 function digUpDown()
     turtle.digUp()
+	turtle.suckUp()
     turtle.digDown()
+	turtle.suckDown()
 end
 
 function digLeftRight()
 	turtle.turnLeft(1)
-	turtle.dig()
+	digFront()
 	turtle.aboutFace()
-	turtle.dig()
+	digFront()
 	turtle.turnRight(1)
 end
 
@@ -43,7 +46,7 @@ function forward(a, doDig)
     for i=1,a do
         if not turtle.forward() then
             if doDig then
-                turtle.dig()
+                digFront()
                 forward(1,false)
             else
                 return false
@@ -72,7 +75,7 @@ function backward(a, doDig)
         if not turtle.back() then
             if doDig then
                 aboutFace()
-                turtle.dig()
+                digFront()
                 aboutFace()
                 backward(1,false)
             else
@@ -86,7 +89,7 @@ function up(a, doDig)
     for i=1,a do
         if not turtle.up() then
             if doDig then
-                turtle.digUp()
+                digFront()
                 up(1, false)
             else
                 return false
@@ -99,7 +102,7 @@ function down(a, doDig)
     for i=1,a do
         if not turtle.down() then
             if doDig then
-                turtle.digDown()
+                digFront()
                 down(1,false)
             else
                 return false
