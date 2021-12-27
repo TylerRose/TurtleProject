@@ -53,14 +53,14 @@ function forward(a, doDig)
 end
 
 function forwardTall(a)
-	for i=0,a do
+	for i=1,a do
 		forward(1,doDig)
 		digUpDown()
 	end
 end
 
 function forwardWide(a)
-	for i=0,a do
+	for i=1,a do
 		forward(1,doDig)
 		digLeftRight()
 	end
