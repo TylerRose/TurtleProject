@@ -1,12 +1,15 @@
 os.loadAPI("include.lua")
 for i=1,2 do
 	for i=1,8 do
+		print("Starting new row")
 		move.forwardTall(16,true)
 		move.uTurnRight(true)
 		move.digUpDown()
+		print("Starting new row")
 		move.forwardTall(16,true)
 		move.uTurnLeft(true)
 	end
+	print("Starting new Layer")
 	move.turnLeft(1)
 	move.forward(16,false)
 	move.turnRight(1)
