@@ -5,8 +5,7 @@ if fs.exists("/disk/") then
 end
 
 --Cleanup
-shell.execute("rm","loc.."*")
-shell.execute("rm","loc.."*")
+shell.execute("rm",loc.."*")
 
 --Modules from github
 print("Getting modules...")
