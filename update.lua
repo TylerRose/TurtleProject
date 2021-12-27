@@ -24,5 +24,10 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings", loc..".settings")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/include.lua", loc.."include.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/startup.lua", loc.."startup.lua")
-shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."turtleStartup.lua")
 
+--Handle startup for each loc
+if loc == "/disk/" then
+	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."turtleStartup.lua")
+else
+	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."startup.lua")
+end
