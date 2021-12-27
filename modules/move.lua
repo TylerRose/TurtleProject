@@ -64,6 +64,7 @@ function forwardWide(a)
 		forward(1,doDig)
 		digLeftRight()
 	end
+end
 
 function backward(a, doDig)
     for i=1,a do
