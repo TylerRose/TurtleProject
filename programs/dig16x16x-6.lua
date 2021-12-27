@@ -12,7 +12,8 @@ for i=1,2 do
 	end
 	print("Starting new Layer")
 	move.turnLeft(1)
-	move.forward(16,false)
+	move.forward(16,true)
 	move.turnRight(1)
 	move.down(3,true)
+	move.backward(1,true)
 end
