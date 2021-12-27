@@ -1,3 +1,4 @@
+os.loadAPI("include.lua")
 for i=1,2 do
 	for i=1,8 do
 		move.forwardTall(16,true)
