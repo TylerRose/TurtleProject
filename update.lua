@@ -1,5 +1,5 @@
 --Cleanup
-shell.execute("rm","/disk/*")
+--shell.execute("rm","/disk/*")
 
 --Modules from github
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/move.lua", "/disk/modules/move.lua")
