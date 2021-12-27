@@ -1,5 +1,5 @@
 --Cleanup
---shell.execute("rm","/disk/*")
+shell.execute("rm","/disk/*")
 
 --Modules from github
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/move.lua", "/disk/modules/move.lua")
@@ -11,7 +11,7 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 
 
 --Root dir from github
---shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", "/disk/updater.lua")
+shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", "/disk/updater.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings.lua", "/disk/.settings.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/include.lua", "/disk/include.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/startup.lua", "/disk/startup.lua")
