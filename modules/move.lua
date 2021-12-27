@@ -116,7 +116,7 @@ end
 function uTurnLeft(doDig)
     turnLeft(1)
     forward(1,doDig)
-    turnRight(1)
+    turnLeft(1)
 end
 
 function moveRight(a, doDig)
