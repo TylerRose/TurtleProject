@@ -54,6 +54,7 @@ end
 
 function forwardTall(a)
 	for i=1,a do
+		print("Forward ("..i.."/"..a..")")
 		forward(1,doDig)
 		digUpDown()
 	end
