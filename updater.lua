@@ -1,1 +1,1 @@
-shell.execute("wget","run","https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua")
+shell.execute("wget","run","https://raw.githubusercontent.com/TylerRose/TurtleProject/main/update.lua")
