@@ -25,36 +25,25 @@ function digUpDown()
     turtle.digDown()
 end
 
+function digLeftRight()
+	turtle.turnLeft(1)
+	turtle.dig()
+	turtle.aboutFace()
+	turtle.dig()
+	turtle.turnRight(1)
+end
+
 function frontUpDown()
     digFront()
     digUpDown()
 end
 
-function checkAndDig(digType)
-    if (digType == "") or (digType == nil) then
-        if digType == "digFront" then
-            digFront()
-            print("Null or Nil")
-        elseif digType == "digUpDown" then
-            digUpDown()
-            print(digType)
-        elseif digType == "frontUpDown" then
-            frontUpDown()
-            print(digType)
-        else
-            digFront()
-            print("Unknown")
-        end
-    end
-end
-
 --Moving Functions--
-function forward(a, doDig, digType)
+function forward(a, doDig)
     for i=1,a do
         if not turtle.forward() then
             if doDig then
                 turtle.dig()
-                checkAndDig(digType)
                 forward(1,false)
             else
                 return false
@@ -63,13 +52,25 @@ function forward(a, doDig, digType)
     end
 end
 
-function backward(a, doDig,digType)
+function forwardTall(a)
+	for i=0,a do
+		forward(1,doDig)
+		digUpDown()
+	end
+end
+
+function forwardWide(a)
+	for i=0,a do
+		forward(1,doDig)
+		digLeftRight()
+	end
+
+function backward(a, doDig)
     for i=1,a do
         if not turtle.back() then
             if doDig then
                 aboutFace()
                 turtle.dig()
-                checkAndDig(digType)
                 aboutFace()
                 backward(1,false)
             else
@@ -79,12 +80,11 @@ function backward(a, doDig,digType)
     end
 end
 
-function up(a, doDig, digType)
+function up(a, doDig)
     for i=1,a do
         if not turtle.up() then
             if doDig then
                 turtle.digUp()
-                checkAndDig(digType)
                 up(1, false)
             else
                 return false
@@ -93,12 +93,11 @@ function up(a, doDig, digType)
     end
 end         
 
-function down(a, doDig, digType)
+function down(a, doDig)
     for i=1,a do
         if not turtle.down() then
             if doDig then
                 turtle.digDown()
-                checkAndDig(digType)
                 down(1,false)
             else
                 return false
