@@ -15,7 +15,7 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 --Root dir from github
 print("Getting root files...")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", "/disk/updater.lua")
-shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings.lua", "/disk/.settings")
+shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings", "/disk/.settings")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/include.lua", "/disk/include.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/startup.lua", "/disk/startup.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", "/disk/turtleStartup.lua")
