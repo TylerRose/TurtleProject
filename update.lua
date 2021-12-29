@@ -16,6 +16,7 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 --Programs from github
 print("Getting programs...")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/programs/dig16x16x-6.lua", loc.."programs/dig16x16x-6.lua")
+shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/programs/gpsrepeat.lua", loc.."programs/gpsrepeat.lua")
 
 
 --Root dir from github
