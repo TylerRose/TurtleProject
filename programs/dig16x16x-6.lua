@@ -4,6 +4,7 @@ local dumpPos = vector.new(0,0,0)
 local refuelPos = vector.new(0,0,0)
 local prevPos = vector.new(0,0,0)
 local prevFacing = ""
+local flyHeight = 0
 
 
 local function isFull()
@@ -16,19 +17,30 @@ local function isFull()
 end
 
 local function doDump()
-	move.goTo(dumpPos)
+	pposSave = prevPos
+	prevPos = gps.locate()
+	prevFacing = move.facing
+	move.goTo(dumpPos,flyHeight)
 	dump.slotsDown(1,16)
-	
+	move.goTo(prevPos,flyHeight)
+	move.faceDir(prevFacing)
+	prevPos = pposSave
+end
 
 local function doRefuel()
+	pposSave = prevPos
+	prevPos = gps.locate()
 	doDump()
-	move.goTo(refuelPos)
+	move.goTo(refuelPos,flyHeight)
 	turtle.select(16)
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
 	end
 	turtle.refuel(64)
+	move.goTo(prevPos,flyHeight)
+	move.faceDir(prevFacing)
+	prevPos = pposSave
 end
 
 local function main()
@@ -52,7 +64,7 @@ local function main()
 			prevPos = gps.locate()
 			prevFacing = move.facing
 			doRefuel()
-			move.goTo(prevPos())
+			move.goTo(prevPos,flyHeight)
 			move.faceDir(prevFacing)
 		end
 		print("Starting new Layer")
