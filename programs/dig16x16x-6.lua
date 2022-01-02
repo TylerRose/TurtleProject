@@ -46,7 +46,7 @@ end
 local function main()
 	for i=1,2 do
 		for i=1,8 do
-			if isFull()
+			if isFull() then
 				doDump()
 			end
 			print("Starting new row")
