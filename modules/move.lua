@@ -1,95 +1,103 @@
 --Turning functions--
+
+facing = "north"
+local dirs = ["north", "east", "south", "west"]
+local facingNum = 0
+
 function turnLeft(a)
     for i=1,a do
         turtle.turnLeft()
     end
+	facingNum += a
+	facingNum = facingNum%4
+	facing = dirs[facingNum]
 end
 
 function turnRight(a)
     for i=1,a do
         turtle.turnRight()
     end
+	facingNum += a
+	facingNum = facingNum%4
+	facing = dirs[facingNum]
 end
 
 function aboutFace()
     turnLeft(2)
 end
 
---DigFunctions--
-function digFront()
-    turtle.dig()
-	turtle.suck()
-end
-
-function digUpDown()
-    turtle.digUp()
-	turtle.suckUp()
-    turtle.digDown()
-	turtle.suckDown()
-end
-
-function digLeftRight()
-	turtle.turnLeft(1)
-	digFront()
-	turtle.aboutFace()
-	digFront()
-	turtle.turnRight(1)
-end
-
-function frontUpDown()
-    digFront()
-    digUpDown()
-end
-
 --Moving Functions--
 function forward(a, doDig)
-    for i=1,a do
-        if not turtle.forward() then
-            if doDig then
-                digFront()
-                forward(1,false)
-            else
-                return false
-            end
-        end
-    end
+	if a > 0 then
+		for i=1,a do
+			while not turtle.forward() do
+				if doDig then
+					blocked, meta = turtle.inspect()
+					while meta.name == "computercraft:turtle_advanced" do 
+						print("Avoiding Friendly Fire")
+					end
+					dig.digFront()
+					forward(1,false)
+				end
+			end
+		end
+	else
+		backward(a*-1)
+	end
 end
 
 function forwardTall(a)
 	for i=1,a do
-		print("Forward ("..i.."/"..a..")")
 		forward(1,true)
-		digUpDown()
+		blocked, meta = turtle.inspectUp()
+		while meta.name == "computercraft:turtle_advanced" do 
+			print("Avoiding Friendly Fire")
+		end
+		blocked, meta = turtle.inspectDown()
+		while meta.name == "computercraft:turtle_advanced" do 
+			print("Avoiding Friendly Fire")
+		end
+		dig.digUpDown()
 	end
 end
 
 function forwardWide(a)
 	for i=1,a do
 		forward(1,true)
-		digLeftRight()
+		turnLeft(1)
+		blocked, meta = turtle.inspect()
+		while meta.name == "computercraft:turtle_advanced" do 
+			print("Avoiding Friendly Fire")
+		end
+		aboutFace()
+		blocked, meta = turtle.inspect()
+		while meta.name == "computercraft:turtle_advanced" do 
+			print("Avoiding Friendly Fire")
+		end
+		turnLeft(1)
+		dig.digLeftRight()
 	end
 end
 
 function backward(a, doDig)
-    for i=1,a do
-        if not turtle.back() then
-            if doDig then
-                aboutFace()
-                digFront()
-                aboutFace()
-                backward(1,false)
-            else
-                return false
-            end
-        end
-    end
+	if a > 0 then
+		aboutFace()
+		forward(a,doDig)
+		aboutFace()
+	else
+		forward(a)
+	end
 end
 
 function up(a, doDig)
     for i=1,a do
         if not turtle.up() then
             if doDig then
-                digFront()
+				blocked, meta = turtle.inspectUp()
+				while meta.name == "computercraft:turtle_advanced" do 
+					print("Avoiding Friendly Fire")
+				end
+                dig.digUp()
                 up(1, false)
             else
                 return false
@@ -102,7 +110,11 @@ function down(a, doDig)
     for i=1,a do
         if not turtle.down() then
             if doDig then
-                digFront()
+				blocked, meta = turtle.inspect()
+				while meta.name == "computercraft:turtle_advanced" do 
+					print("Avoiding Friendly Fire")
+				end
+                dig.digFront()
                 down(1,false)
             else
                 return false
@@ -111,6 +123,7 @@ function down(a, doDig)
     end
 end
 
+-- Compound turn functions
 function moveLeft(a, doDig)
     turnLeft(1)
     forward(a, doDig)
@@ -133,4 +146,33 @@ function uTurnRight(doDig)
     turnRight(1)
     forward(1,doDig)
     turnRight(1)
+end
+
+function faceDir(direction)
+	while not direction == move.facing do
+		move.turnLeft(1)
+	end
+end
+
+--Complex move functions
+
+function moveTo(newPos, flyHeight)
+	currentPos = gps.locate()
+	path = newPos - currentPos
+	fuelRequired = path.x + path.y + path.z + flyHeight
+	while turtle.getFuelLevel() < fuelRequired do
+		print("ERROR: No fuel to refuel!)
+		for i=0, 16 do
+			turtle.select(i)
+			turtle.refuel(64)
+		end
+		aboutFace()
+		aboutFace()
+	end
+	up(path.y+flyHeight, true)
+	faceDir("north")
+	forward(path.z*-1,true)
+	faceDir("east")
+	forward(path.x, true)
+	down(flyHeight, true)
 end
