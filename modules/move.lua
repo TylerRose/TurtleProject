@@ -1,7 +1,7 @@
 --Turning functions--
 
 facing = "north"
-local dirs = ["north", "east", "south", "west"]
+local dirs = {"north", "east", "south", "west"}
 local facingNum = 0
 
 function turnLeft(a)
