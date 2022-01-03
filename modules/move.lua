@@ -159,7 +159,7 @@ end
 
 function moveTo(newPos, flyHeight)
 	currentPos = vector.new(gps.locate())
-	print("Moving to: "..newPos .. " - current: "..currentPos:tostring())
+	print("Moving to: "..newPos:tostring() .. " - current: "..currentPos:tostring())
 	path = newPos - currentPos
 	print("Moving along "..path.x.." "..path.y.." "..path.z)
 	fuelRequired = path.x + path.y + path.z + flyHeight
