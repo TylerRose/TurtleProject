@@ -9,7 +9,7 @@ local prevFacing = ""
 
 local function isFull()
 	turtle.select(16)
-	if turtle.getItemCount() then
+	if turtle.getItemCount() > 0 then
 		return true
 	else
 		return false
