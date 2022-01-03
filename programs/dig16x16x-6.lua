@@ -20,9 +20,9 @@ local function doDump()
 	pposSave = prevPos
 	prevPos = gps.locate()
 	prevFacing = move.facing
-	move.goTo(conf.dumpPos,conf.flyHeight)
+	move.moveTo(conf.dumpPos,conf.flyHeight)
 	dump.slotsDown(1,16)
-	move.goTo(prevPos,conf.flyHeight)
+	move.moveTo(prevPos,conf.flyHeight)
 	move.faceDir(prevFacing)
 	prevPos = pposSave
 end
@@ -31,14 +31,14 @@ local function doRefuel()
 	pposSave = prevPos
 	prevPos = gps.locate()
 	doDump()
-	move.goTo(conf.refuelPos,conf.flyHeight)
+	move.moveTo(conf.refuelPos,conf.flyHeight)
 	turtle.select(16)
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
 	end
 	turtle.refuel(64)
-	move.goTo(prevPos,conf.flyHeight)
+	move.moveTo(prevPos,conf.flyHeight)
 	move.faceDir(prevFacing)
 	prevPos = pposSave
 end
