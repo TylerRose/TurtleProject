@@ -159,6 +159,7 @@ end
 function moveTo(newPos, flyHeight)
 	currentPos = vector.new(gps.locate())
 	path = newPos - currentPos
+	print("Moving along "..path.x.." "..path.y.." "..path.z)
 	fuelRequired = path.x + path.y + path.z + flyHeight
 	while turtle.getFuelLevel() < fuelRequired do
 		print("ERROR: No fuel to refuel!")
