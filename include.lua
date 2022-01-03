@@ -10,6 +10,13 @@ function includeAll()
             os.loadAPI("modules/"..file)
         end
     end
+
+    if fs.exists("config/") then
+        for _, file in ipairs(fs.list("disk/config/")) do
+            os.loadAPI("disk/config/"..file)
+        end
+    end
+
 end
 includeAll()
 echo.echo("Include Success")
