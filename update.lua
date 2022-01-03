@@ -5,7 +5,12 @@ if fs.exists("/disk/") then
 end
 
 --Cleanup
-shell.execute("rm",loc.."*")
+shell.execute("rm",loc.."programs/")
+shell.execute("rm",loc.."modules/")
+shell.execute("rm",loc..".settings")
+shell.execute("rm",loc.."include.lua")
+shell.execute("rm",loc.."startup.lua")
+
 
 --Modules from github
 print("Getting modules...")
