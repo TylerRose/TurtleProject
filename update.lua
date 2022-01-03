@@ -20,7 +20,6 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/dump.lua", loc.."modules/dump.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/echo.lua", loc.."modules/echo.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/dig.lua", loc.."modules/dig.lua")
-shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/modules/debug.lua", loc.."modules/debug.lua")
 
 --Programs from github
 print("Getting programs...")
