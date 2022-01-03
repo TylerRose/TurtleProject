@@ -45,6 +45,7 @@ local function doRefuel()
 end
 
 local function main()
+	forward(1)
 	for i=1,2 do
 		if turtle.getFuelLevel() < 64 then
 			print("Refueling")
@@ -56,7 +57,7 @@ local function main()
 				doDump()
 			end
 			print("Starting new row")
-			move.forwardTall(16,true)
+			move.forwardTall(14,true)
 			move.uTurnRight(true)
 			dig.digUpDown()
 			if isFull() then
@@ -64,7 +65,7 @@ local function main()
 				doDump()
 			end
 			print("Starting new row")
-			move.forwardTall(16,true)
+			move.forwardTall(14,true)
 			move.uTurnLeft(true)
 		end
 		print("Starting new Layer")
