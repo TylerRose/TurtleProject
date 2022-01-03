@@ -14,6 +14,7 @@ local function isFull()
 	else
 		return false
 	end
+	turtle.select(1)
 end
 
 local function doDump()
