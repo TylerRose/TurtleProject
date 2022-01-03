@@ -9,9 +9,9 @@ function digUp()
 end
 
 function digDown()
-	turlte.digDown()
+	turtle.digDown()
 	turtle.suckDown()
-end
+end	
 
 function digUpDown()
     digUp()
