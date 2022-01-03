@@ -7,7 +7,9 @@ end
 --Cleanup
 shell.execute("rm",loc.."programs/")
 shell.execute("rm",loc.."modules/")
-shell.execute("rm",loc..".settings")
+if loc == "/disk/" then
+	shell.execute("rm",loc..".settings")
+end
 shell.execute("rm",loc.."include.lua")
 shell.execute("rm",loc.."startup.lua")
 
