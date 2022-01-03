@@ -53,7 +53,7 @@ local function main()
 			print("Starting new row")
 			move.forwardTall(16,true)
 			move.uTurnRight(true)
-			move.digUpDown()
+			dig.digUpDown()
 			if isFull() then
 				print("Inventory Full")
 				doDump()
