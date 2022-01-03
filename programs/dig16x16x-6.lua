@@ -33,7 +33,7 @@ local function doRefuel()
 	prevPos = vector.new(gps.locate())
 	doDump()
 	move.moveTo(conf.refuelPos,conf.flyHeight)
-	turtle.select(16)
+	turtle.select(1)
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
