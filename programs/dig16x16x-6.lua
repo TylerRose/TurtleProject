@@ -18,7 +18,7 @@ end
 
 local function doDump()
 	pposSave = prevPos
-	prevPos = gps.locate()
+	prevPos = vector.new(gps.locate())
 	prevFacing = move.facing
 	move.moveTo(conf.dumpPos,conf.flyHeight)
 	dump.slotsDown(1,16)
@@ -29,7 +29,7 @@ end
 
 local function doRefuel()
 	pposSave = prevPos
-	prevPos = gps.locate()
+	prevPos = vector.new(gps.locate())
 	doDump()
 	move.moveTo(conf.refuelPos,conf.flyHeight)
 	turtle.select(16)
