@@ -46,6 +46,10 @@ end
 
 local function main()
 	for i=1,2 do
+		if turtle.getFuelLevel() < 64 then
+			print("Refueling")
+			doRefuel()
+		end
 		for j=1,8 do
 			if isFull() then
 				print("Inventory Full")
@@ -62,10 +66,6 @@ local function main()
 			print("Starting new row")
 			move.forwardTall(16,true)
 			move.uTurnLeft(true)
-		end
-		if turtle.getFuelLevel() < 64 then
-			print("Refueling")
-			doRefuel()
 		end
 		print("Starting new Layer")
 		move.turnLeft(1)
