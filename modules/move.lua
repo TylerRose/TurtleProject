@@ -157,7 +157,7 @@ end
 --Complex move functions
 
 function moveTo(newPos, flyHeight)
-	currentPos = gps.locate()
+	currentPos = vector.new(gps.locate())
 	path = newPos - currentPos
 	fuelRequired = path.x + path.y + path.z + flyHeight
 	while turtle.getFuelLevel() < fuelRequired do
