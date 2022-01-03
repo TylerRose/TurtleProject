@@ -8,7 +8,7 @@ function turnLeft(a)
     for i=1,a do
         turtle.turnLeft()
     end
-	facingNum += a
+	facingNum = facingNum + a
 	facingNum = facingNum%4
 	facing = dirs[facingNum]
 end
@@ -17,7 +17,7 @@ function turnRight(a)
     for i=1,a do
         turtle.turnRight()
     end
-	facingNum += a
+	facingNum = facingNum + a
 	facingNum = facingNum%4
 	facing = dirs[facingNum]
 end
@@ -161,7 +161,7 @@ function moveTo(newPos, flyHeight)
 	path = newPos - currentPos
 	fuelRequired = path.x + path.y + path.z + flyHeight
 	while turtle.getFuelLevel() < fuelRequired do
-		print("ERROR: No fuel to refuel!)
+		print("ERROR: No fuel to refuel!")
 		for i=0, 16 do
 			turtle.select(i)
 			turtle.refuel(64)
