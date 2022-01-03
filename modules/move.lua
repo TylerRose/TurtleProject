@@ -165,7 +165,7 @@ function moveTo(newPos, flyHeight)
 	fuelRequired = path.x + path.y + path.z + flyHeight
 	while turtle.getFuelLevel() < fuelRequired do
 		print("ERROR: No fuel to refuel!")
-		for i=0, 16 do
+		for i=1, 16 do
 			turtle.select(i)
 			turtle.refuel(64)
 		end
