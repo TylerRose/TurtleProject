@@ -28,7 +28,7 @@ end
 
 --Moving Functions--
 function forward(a, doDig)
-	if a > 0 then
+	if a >= 0 then
 		for i=1,a do
 			while not turtle.forward() do
 				if doDig then
@@ -175,7 +175,7 @@ function moveTo(newPos, flyHeight)
 	end
 	up(flyHeight-currentPos.y, true)
 	faceDir("north")
-	forward(path.z*-1,true)
+	forward(path.z,true)
 	faceDir("east")
 	forward(path.x, true)
 	down(flyHeight-currentPos.y, true)
