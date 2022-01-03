@@ -13,7 +13,7 @@ function includeAll()
 
     if fs.exists("config/") then
         for _, file in ipairs(fs.list("disk/config/")) do
-            os.loadAPI("disk/config/"..file)
+            os.loadAPI("/config/"..file)
         end
     end
 
