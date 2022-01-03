@@ -45,7 +45,7 @@ local function doRefuel()
 end
 
 local function main()
-	forward(1)
+	move.forward(1)
 	for i=1,2 do
 		if turtle.getFuelLevel() < 64 then
 			print("Refueling")
