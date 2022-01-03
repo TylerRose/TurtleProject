@@ -10,6 +10,7 @@ function slotsDown(a, b)
         turtle.select(i)
         turtle.dropDown()
     end
+    turtle.select(1)
 end
 
 function currentFront()
