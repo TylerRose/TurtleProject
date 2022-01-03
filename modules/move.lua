@@ -150,7 +150,8 @@ end
 
 function faceDir(direction)
 	while not direction == move.facing do
-		move.turnLeft(1)
+		print("Turning to: "..direction.." - current: "..move.facing)
+		move.turnRight(1)
 	end
 end
 
@@ -170,7 +171,7 @@ function moveTo(newPos, flyHeight)
 		aboutFace()
 		aboutFace()
 	end
-	up(path.y+flyHeight, true)
+	up(flyHeight-path.y, true)
 	faceDir("north")
 	forward(path.z*-1,true)
 	faceDir("east")
