@@ -47,6 +47,7 @@ local function main()
 	for i=1,2 do
 		for j=1,8 do
 			if isFull() then
+				print("Inventory Full")
 				doDump()
 			end
 			print("Starting new row")
@@ -54,6 +55,7 @@ local function main()
 			move.uTurnRight(true)
 			move.digUpDown()
 			if isFull() then
+				print("Inventory Full")
 				doDump()
 			end
 			print("Starting new row")
@@ -61,6 +63,7 @@ local function main()
 			move.uTurnLeft(true)
 		end
 		if turtle.getFuelLevel() < 64 then
+			print("Refueling")
 			doRefuel()
 		end
 		print("Starting new Layer")
