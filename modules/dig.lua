@@ -4,14 +4,14 @@ function digFront()
 end
 
 function digUp()
-	turtle.dig()
+	turtle.digUp()
 	turtle.suckUp()
 end
 
 function digDown()
 	turtle.digDown()
 	turtle.suckDown()
-end	
+end
 
 function digUpDown()
     digUp()
