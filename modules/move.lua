@@ -85,7 +85,7 @@ function backward(a, doDig)
 		forward(a,doDig)
 		aboutFace()
 	else
-		forward(a)
+		forward(a*-1)
 	end
 end
 
@@ -159,7 +159,7 @@ end
 
 function moveTo(newPos, flyHeight)
 	currentPos = vector.new(gps.locate())
-	print("Moving to: "..newPos .. " - current: "..currentPos)
+	print("Moving to: "..newPos .. " - current: "..currentPos:tostring())
 	path = newPos - currentPos
 	print("Moving along "..path.x.." "..path.y.." "..path.z)
 	fuelRequired = path.x + path.y + path.z + flyHeight
