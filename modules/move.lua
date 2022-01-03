@@ -80,7 +80,7 @@ function forwardWide(a)
 end
 
 function backward(a, doDig)
-	if a > 0 then
+	if a >= 0 then
 		aboutFace()
 		forward(a,doDig)
 		aboutFace()
