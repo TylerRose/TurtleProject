@@ -169,6 +169,7 @@ function moveTo(newPos, flyHeight)
 			turtle.select(i)
 			turtle.refuel(64)
 		end
+		turtle.select(1)
 		aboutFace()
 		aboutFace()
 	end
