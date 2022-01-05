@@ -2,24 +2,26 @@
 
 facing = "north"
 local dirs = {"north", "east", "south", "west"}
-local facingNum = 0
+local facingNum = 1
 
 function turnLeft(a)
     for i=1,a do
         turtle.turnLeft()
     end
 	facingNum = facingNum + a
-	facingNum = facingNum%4
-	facing = dirs[facingNum]
+	facingNum = facingNum % 4
+	facing = dirs[facingNum+1]
+	print("Now Facing " .. facing)
 end
 
 function turnRight(a)
     for i=1,a do
         turtle.turnRight()
     end
-	facingNum = facingNum + a
-	facingNum = facingNum%4
-	facing = dirs[facingNum]
+	facingNum = facingNum - a
+	facingNum = facingNum % 4
+	facing = dirs[(facingNum-1)*-1]
+	print("Now Facing " .. facing)
 end
 
 function aboutFace()
@@ -149,9 +151,10 @@ function uTurnRight(doDig)
 end
 
 function faceDir(direction)
-	while not direction == move.facing do
-		print("Turning to: "..direction.." - current: "..move.facing)
+	print("Turning to: "..direction.." - current: "..move.facing)
+	while not (direction == move.facing) do
 		move.turnRight(1)
+		print("Turning to: "..direction.." - current: "..move.facing)
 	end
 end
 
