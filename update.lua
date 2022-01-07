@@ -36,7 +36,9 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 
 --Handle startup for each loc
 if loc == "/disk/" then
+	print("Updating with disk attached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."turtleStartup.lua")
 else
+	print("Updating without disk detached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."startup.lua")
 end
