@@ -32,13 +32,12 @@ print("Getting root files...")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", loc.."updater.lua")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings", loc..".settings")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/include.lua", loc.."include.lua")
-shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/startup.lua", loc.."startup.lua")
 
 --Handle startup for each loc
 if loc == "/disk/" then
 	print("Updating with disk attached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."turtleStartup.lua")
 else
-	print("Updating without disk detached...")
+	print("Updating without disk attached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."startup.lua")
 end
