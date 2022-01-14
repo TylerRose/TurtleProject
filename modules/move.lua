@@ -7,7 +7,7 @@ local facingNum = 1
 function turnLeft(a)
     for i=1,a do
         turtle.turnLeft()
-		facingNum -= 1
+		facingNum = facingNum - 1
 		if facingNum == 0 then
 			facingNum = 1
 		end
@@ -20,7 +20,7 @@ end
 function turnRight(a)
     for i=1,a do
         turtle.turnRight()
-				facingNum += 1
+				facingNum = facingNum + 1
 		if facingNum == 5 then
 			facingNum = 1		
 		end
