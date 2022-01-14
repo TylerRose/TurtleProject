@@ -70,12 +70,14 @@ function forwardTall(a)
 		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
 		else
+			print("elseUp")
 			dig.digUp()
 		end
 		blocked, meta = turtle.inspectDown()
 		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
 		else
+			print("elseDown")
 			dig.digDown()
 		end
 	end
