@@ -43,7 +43,7 @@ end
 function forward(a, doDig)
 	if a >= 0 then
 		for i=1,a do
-			while not turtle.forward() do
+			if not turtle.forward() then
 				if doDig then
 					blocked, meta = turtle.inspect()
 					while meta.name == "computercraft:turtle_advanced" do 
@@ -64,20 +64,17 @@ function forwardTall(a)
 		a = 1
 	end
 	for i=1,a do
-		print(a)
 		forward(1,true)
 		blocked, meta = turtle.inspectUp()
 		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
 		else
-			print("elseUp")
 			dig.digUp()
 		end
 		blocked, meta = turtle.inspectDown()
 		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
 		else
-			print("elseDown")
 			dig.digDown()
 		end
 	end
