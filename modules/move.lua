@@ -5,6 +5,9 @@ local dirs = {"north", "east", "south", "west"}
 local facingNum = 1
 
 function turnLeft(a)
+	if a == nil then
+		a = 1
+	end
     for i=1,a do
         turtle.turnLeft()
 		facingNum = facingNum - 1
@@ -18,6 +21,9 @@ function turnLeft(a)
 end
 
 function turnRight(a)
+	if a == nil then
+		a = 1
+	end
     for i=1,a do
         turtle.turnRight()
 				facingNum = facingNum + 1
