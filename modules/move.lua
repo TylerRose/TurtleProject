@@ -64,16 +64,20 @@ function forwardTall(a)
 		a = 1
 	end
 	for i=1,a do
+		print(a)
 		forward(1,true)
 		blocked, meta = turtle.inspectUp()
-		while meta.name == "computercraft:turtle_advanced" do 
+		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
+		else
+			dig.digUp()
 		end
 		blocked, meta = turtle.inspectDown()
-		while meta.name == "computercraft:turtle_advanced" do 
+		if meta.name == "computercraft:turtle_advanced" then 
 			print("Avoiding Friendly Fire")
+		else
+			dig.digDown()
 		end
-		dig.digUpDown()
 	end
 end
 
