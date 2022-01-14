@@ -9,7 +9,7 @@ function turnLeft(a)
         turtle.turnLeft()
 		facingNum = facingNum - 1
 		if facingNum == 0 then
-			facingNum = 5
+			facingNum = 4
 		end
 		facing = dirs[facingNum]
     end
