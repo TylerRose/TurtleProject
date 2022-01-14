@@ -26,8 +26,11 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 --Programs from github
 print("Getting programs...")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/programs/dig16x16x-6.lua", loc.."programs/dig16x16x-6.lua")
-shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/programs/gpsrepeat.lua", loc.."programs/gpsrepeat.lua")
 
+--Config templates/defaults if they don't exist
+if not fs.exists("/config/digVars.lua") then
+	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/config/digVars.lua", "/config/digVars.lua")
+end
 
 --Root dir from github
 print("Getting root files...")
