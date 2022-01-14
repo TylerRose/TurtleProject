@@ -57,16 +57,26 @@ local function main()
 				doDump()
 			end
 			print("Starting new row")
-			move.forwardTall(14,true)
-			move.uTurnRight(true)
+			move.forwardTall(14)
+			
+			//Right uturn tall
+			move.turnRight()
 			dig.digUpDown()
+			move.forwardTall(1)
+			move.turnRight()
+			
 			if isFull() then
 				print("Inventory Full")
 				doDump()
 			end
 			print("Starting new row")
-			move.forwardTall(14,true)
-			move.uTurnLeft(true)
+			move.forwardTall(14)
+			
+			//left uturn tall
+			move.turnLeft(1)
+			dig.digUpDown()
+			move.forwardTall(1)
+			move.turnLeft()
 		end
 		print("Starting new Layer")
 		move.turnLeft(1)
