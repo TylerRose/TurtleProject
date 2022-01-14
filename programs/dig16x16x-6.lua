@@ -14,7 +14,7 @@ local function isFull()
 	else
 		return false
 	end
-	turtle.select(1)
+	turtle.select()
 end
 
 local function doDump()
@@ -33,7 +33,7 @@ local function doRefuel()
 	prevPos = vector.new(gps.locate())
 	doDump()
 	move.moveTo(digVars.refuelPos,digVars.flyHeight)
-	turtle.select(1)
+	turtle.select()
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
@@ -60,12 +60,12 @@ local function main()
 			end
 			--Start down
 			print("Going down")
-			move.forwardTall(14)
+			move.forwardTall(15)
 			
 			--Right uturn tall
 			move.turnRight()
 			dig.digUpDown()
-			move.forwardTall(1)
+			move.forwardTall()
 			move.turnRight()
 			
 			if isFull() then
@@ -74,18 +74,18 @@ local function main()
 			end
 			--Start back
 			print("Coming back")
-			move.forwardTall(14)
+			move.forwardTall(15)
 			
 			--left uturn tall
-			move.turnLeft(1)
+			move.turnLeft()
 			dig.digUpDown()
-			move.forwardTall(1)
+			move.forwardTall()
 			move.turnLeft()
 		end
 		print("Starting new Layer")
-		move.turnLeft(1)
-		move.forward(16,true)
-		move.turnRight(1)
+		move.turnLeft()
+		move.forward(15,true)
+		move.turnRight()
 		move.down(3,true)
 		move.backward(1,true)
 	end
