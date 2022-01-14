@@ -46,17 +46,20 @@ end
 
 local function main()
 	move.forward(1, true)
+	--Height layers 1, 2
 	for i=1,2 do
 		if turtle.getFuelLevel() < 64 then
 			print("Refueling")
 			doRefuel()
 		end
+		--For each down and back
 		for j=1,8 do
 			if isFull() then
 				print("Inventory Full")
 				doDump()
 			end
-			print("Starting new row")
+			--Start down
+			print("Going down")
 			move.forwardTall(14)
 			
 			//Right uturn tall
@@ -69,7 +72,8 @@ local function main()
 				print("Inventory Full")
 				doDump()
 			end
-			print("Starting new row")
+			--Start back
+			print("Coming back")
 			move.forwardTall(14)
 			
 			//left uturn tall
