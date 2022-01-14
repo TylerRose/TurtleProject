@@ -9,6 +9,7 @@ shell.execute("rm",loc.."programs/")
 shell.execute("rm",loc.."modules/")
 if loc == "/disk/" then
 	shell.execute("rm",loc..".settings")
+	shell.execute("rm",loc.."turtleStartup.lua")
 end
 shell.execute("rm",loc.."include.lua")
 shell.execute("rm",loc.."startup.lua")
