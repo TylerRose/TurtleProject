@@ -7,20 +7,25 @@ local facingNum = 1
 function turnLeft(a)
     for i=1,a do
         turtle.turnLeft()
+		facingNum -= 1
+		if facingNum == 0 then
+			facingNum = 1
+		end
+		facing = dirs[facingNum]
     end
-	facingNum = facingNum + a
-	facingNum = facingNum % 4
-	facing = dirs[facingNum+1]
+	facing = dirs[facingNum]
 	print("Now Facing " .. facing)
 end
 
 function turnRight(a)
     for i=1,a do
         turtle.turnRight()
+				facingNum += 1
+		if facingNum == 5 then
+			facingNum = 1		
+		end
+		facing = dirs[facingNum]
     end
-	facingNum = facingNum - a
-	facingNum = facingNum % 4
-	facing = dirs[(facingNum-1)*-1]
 	print("Now Facing " .. facing)
 end
 
