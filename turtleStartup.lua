@@ -3,3 +3,4 @@ if os.getComputerLabel() == nil then
 end
 print("Hello World, "..os.getComputerLabel().." here!")
 os.loadAPI("include.lua")
+print("Loaded includes.")
