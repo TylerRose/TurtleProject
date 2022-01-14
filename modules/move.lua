@@ -176,6 +176,7 @@ end
 --Complex move functions
 
 function moveTo(newPos, flyHeight)
+	saveFacing = facing
 	currentPos = vector.new(gps.locate())
 	print("Moving to: "..newPos:tostring() .. " - current: "..currentPos:tostring())
 	path = newPos - currentPos
@@ -196,5 +197,6 @@ function moveTo(newPos, flyHeight)
 	forward(-path.z,true)
 	faceDir("east")
 	forward(path.x, true)
-	down(flyHeight-currentPos.y+path.y, true)
+	down(flyHeight-currentPos.y-path.y, true)
+	faceDir(saveFacing)
 end
