@@ -1,3 +1,4 @@
+shell.execute("/disk/updater")
 fs.delete("/.settings")
 fs.delete("/programs")
 fs.delete("/modules")
