@@ -62,7 +62,7 @@ local function main()
 			print("Going down")
 			move.forwardTall(14)
 			
-			//Right uturn tall
+			--Right uturn tall
 			move.turnRight()
 			dig.digUpDown()
 			move.forwardTall(1)
@@ -76,7 +76,7 @@ local function main()
 			print("Coming back")
 			move.forwardTall(14)
 			
-			//left uturn tall
+			--left uturn tall
 			move.turnLeft(1)
 			dig.digUpDown()
 			move.forwardTall(1)
