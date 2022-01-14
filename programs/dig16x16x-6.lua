@@ -1,6 +1,6 @@
 os.loadAPI("include.lua")
 
---Vars to put in config file
+--Vars to put in digVars config file
 --local dumpPos = vector.new(0,0,0)
 --local refuelPos = vector.new(0,0,0)
 --local flyHeight = 0
@@ -21,9 +21,9 @@ local function doDump()
 	pposSave = prevPos
 	prevPos = vector.new(gps.locate())
 	prevFacing = move.facing
-	move.moveTo(conf.dumpPos,conf.flyHeight)
+	move.moveTo(digVars.dumpPos,digVars.flyHeight)
 	dump.slotsDown(1,16)
-	move.moveTo(prevPos,conf.flyHeight)
+	move.moveTo(prevPos,digVars.flyHeight)
 	move.faceDir(prevFacing)
 	prevPos = pposSave
 end
@@ -32,14 +32,14 @@ local function doRefuel()
 	pposSave = prevPos
 	prevPos = vector.new(gps.locate())
 	doDump()
-	move.moveTo(conf.refuelPos,conf.flyHeight)
+	move.moveTo(digVars.refuelPos,digVars.flyHeight)
 	turtle.select(1)
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
 	end
 	turtle.refuel(64)
-	move.moveTo(prevPos,conf.flyHeight)
+	move.moveTo(prevPos,digVars.flyHeight)
 	move.faceDir(prevFacing)
 	prevPos = pposSave
 end
