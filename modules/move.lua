@@ -60,6 +60,9 @@ function forward(a, doDig)
 end
 
 function forwardTall(a)
+	if a == nill then
+		a = 1
+	end
 	for i=1,a do
 		forward(1,true)
 		blocked, meta = turtle.inspectUp()
@@ -75,6 +78,9 @@ function forwardTall(a)
 end
 
 function forwardWide(a)
+	if a == nill then
+		a = 1
+	end
 	for i=1,a do
 		forward(1,true)
 		turnLeft(1)
