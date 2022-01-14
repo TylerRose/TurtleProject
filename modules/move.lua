@@ -163,9 +163,14 @@ end
 
 function faceDir(direction)
 	print("Turning to: "..direction.." - current: "..facing)
+	turnCount = 0
 	while not (direction == facing) do
 		turnRight(1)
+		turnCount = turnCount + 1
 		print("Turning to: "..direction.." - current: "..facing)
+		if turnCount == 5 then
+			direction = nil
+		end
 	end
 end
 
