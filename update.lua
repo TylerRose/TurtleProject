@@ -12,6 +12,7 @@ if loc == "/disk/" then
 end
 shell.execute("rm",loc.."include.lua")
 shell.execute("rm",loc.."startup.lua")
+shell.execute("rm","/startup.lua")
 
 
 --Modules from github
@@ -37,6 +38,7 @@ shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject
 if loc == "/disk/" then
 	print("Updating with disk attached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."turtleStartup.lua")
+	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/startup.lua", loc.."startup.lua")
 else
 	print("Updating without disk attached...")
 	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/turtleStartup.lua", loc.."startup.lua")
