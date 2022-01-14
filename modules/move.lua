@@ -166,8 +166,7 @@ function faceDir(direction)
 	turnCount = 0
 	while not (direction == facing) do
 		turnRight(1)
-		turnCount = turnCount + 1
-		print("Turning to: "..direction.." - current: "..facing)
+		turnCount = turnCount + 1		
 		if turnCount == 5 then
 			direction = nil
 		end
@@ -197,5 +196,5 @@ function moveTo(newPos, flyHeight)
 	forward(-path.z,true)
 	faceDir("east")
 	forward(path.x, true)
-	down(flyHeight-currentPos.y, true)
+	down(flyHeight-currentPos.y+path.y, true)
 end
