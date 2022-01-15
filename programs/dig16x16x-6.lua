@@ -14,7 +14,7 @@ local function isFull()
 	else
 		return false
 	end
-	turtle.select()
+	turtle.select(1)
 end
 
 local function doDump()
@@ -33,7 +33,7 @@ local function doRefuel()
 	prevPos = vector.new(gps.locate())
 	doDump()
 	move.moveTo(digVars.refuelPos,digVars.flyHeight)
-	turtle.select()
+	turtle.select(1)
 	while turtle.getItemCount < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
@@ -58,8 +58,8 @@ local function main()
 				print("Inventory Full")
 				doDump()
 			end
-			--Start down
-			print("Going down")
+			--Start across
+			print("Going across")
 			move.forwardTall(15)
 			
 			--Right uturn tall
