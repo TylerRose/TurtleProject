@@ -6,6 +6,11 @@ os.loadAPI("include.lua")
 --local flyHeight = 0
 local prevPos = vector.new(0,0,0)
 local prevFacing = ""
+local depth = 2
+local tArgs = { ... }
+if #tArgs > 1 then
+	depth = tArgs[1]
+end
 
 local function isFull()
 	turtle.select(16)
@@ -45,8 +50,8 @@ end
 
 local function main()
 	move.forward(1, true)
-	--Height layers 1, 2
-	for i=1,2 do
+	--Height layers 1-depth
+	for i=1,depth do
 		if turtle.getFuelLevel() < 64 then
 			print("Refueling")
 			doRefuel()
