@@ -190,9 +190,9 @@ function moveTo(newPos, flyHeight)
 	print("Moving to: "..newPos:tostring() .. " - current: "..currentPos:tostring())
 	path = newPos - currentPos
 	print("Moving along "..path.x.." "..path.y.." "..path.z)
-	fuelRequired = path.x + path.y + path.z + flyHeight
+	fuelRequired = path.x + path.y + path.z + flyHeight - currentPos.y
 	while turtle.getFuelLevel() < fuelRequired do
-		print("ERROR: No fuel to refuel!")
+		print("ERROR: Not enough fuel!")
 		for i=1, 16 do
 			turtle.select(i)
 			turtle.refuel(64)
