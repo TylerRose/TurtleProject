@@ -50,6 +50,7 @@ end
 
 local function main()
 	move.forward(1, true)
+	dig.digDown()
 	--Height layers 1-depth
 	for i=1,depth do
 		if turtle.getFuelLevel() < 64 then
