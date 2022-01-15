@@ -26,7 +26,7 @@ function turnRight(a)
 	end
     for i=1,a do
         turtle.turnRight()
-				facingNum = facingNum + 1
+		facingNum = facingNum + 1
 		if facingNum == 5 then
 			facingNum = 1		
 		end
@@ -171,13 +171,15 @@ function uTurnRight(doDig)
 end
 
 function faceDir(direction)
-	print("Turning to: "..direction.." - current: "..facing)
-	turnCount = 0
-	while not (direction == facing) do
-		turnRight(1)
-		turnCount = turnCount + 1		
-		if turnCount == 5 then
-			direction = nil
+	if not direction == facing then
+		print("Turning to: "..direction.." - current: "..facing)
+		turnCount = 0
+		while not (direction == facing) do
+			turnRight(1)
+			turnCount = turnCount + 1		
+			if turnCount == 5 then
+				direction = nil
+			end
 		end
 	end
 end
