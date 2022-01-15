@@ -10,11 +10,13 @@ local prevFacing = ""
 local function isFull()
 	turtle.select(16)
 	if turtle.getItemCount() > 0 then
+		turtle.select(1)
 		return true
 	else
+		turtle.select(1)
 		return false
 	end
-	turtle.select(1)
+	
 end
 
 local function doDump()
