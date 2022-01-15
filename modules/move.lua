@@ -136,7 +136,7 @@ function down(a, doDig)
 				while meta.name == "computercraft:turtle_advanced" do 
 					print("Avoiding Friendly Fire")
 				end
-                dig.digFront()
+                dig.digDown()
                 down(1,false)
             else
                 return false
