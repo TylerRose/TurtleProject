@@ -35,6 +35,10 @@ end
 --Root dir from github
 print("Getting root files...")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", loc.."updater.lua")
+if loc == "/disk/" then
+	shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/updater.lua", "/disk/updater.lua")
+end
+
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/.settings", loc..".settings")
 shell.execute("wget", "https://raw.githubusercontent.com/TylerRose/TurtleProject/main/include.lua", loc.."include.lua")
 
