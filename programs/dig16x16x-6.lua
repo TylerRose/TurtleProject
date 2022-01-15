@@ -53,15 +53,15 @@ local function main()
 	dig.digDown()
 	--Height layers 1-depth
 	for i=1,depth do
-		if turtle.getFuelLevel() < 64 then
-			print("Refueling")
-			doRefuel()
-		end
 		--For each down and back
 		for j=1,8 do
 			if isFull() then
 				print("Inventory Full")
 				doDump()
+			end
+			if turtle.getFuelLevel() < 64 then
+				print("Refueling")
+				doRefuel()
 			end
 			--Start across
 			print("Going across")
