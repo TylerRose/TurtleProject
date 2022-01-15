@@ -205,7 +205,7 @@ function moveTo(newPos, flyHeight)
 	end
 	up(flyHeight-currentPos.y, true)
 	faceDir("north")
-	forward(-path.z,true)
+	forward(-path.z, true)
 	faceDir("east")
 	forward(path.x, true)
 	down(flyHeight-currentPos.y-path.y, true)
