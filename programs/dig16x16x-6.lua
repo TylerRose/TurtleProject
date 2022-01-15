@@ -18,18 +18,16 @@ local function isFull()
 end
 
 local function doDump()
-	pposSave = prevPos
+	prevPosSave = prevPos
 	prevPos = vector.new(gps.locate())
-	prevFacing = move.facing
 	move.moveTo(digVars.dumpPos,digVars.flyHeight)
 	dump.slotsDown(1,16)
 	move.moveTo(prevPos,digVars.flyHeight)
-	move.faceDir(prevFacing)
-	prevPos = pposSave
+	prevPos = prevPosSave
 end
 
 local function doRefuel()
-	pposSave = prevPos
+	prevPosSave = prevPos
 	prevPos = vector.new(gps.locate())
 	doDump()
 	move.moveTo(digVars.refuelPos,digVars.flyHeight)
@@ -40,8 +38,7 @@ local function doRefuel()
 	end
 	turtle.refuel(64)
 	move.moveTo(prevPos,digVars.flyHeight)
-	move.faceDir(prevFacing)
-	prevPos = pposSave
+	prevPos = prevPosSave
 end
 
 local function main()
