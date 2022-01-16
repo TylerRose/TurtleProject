@@ -89,7 +89,7 @@ local function main()
 		end
 		print("Starting new Layer")
 		move.turnLeft()
-		move.forward(15,true)
+		move.forward(16,true)
 		move.turnRight()
 		move.down(3,true)
 		move.backward(1,true)
