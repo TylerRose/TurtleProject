@@ -39,7 +39,7 @@ local function doRefuel()
 	doDump()
 	move.moveTo(digVars.refuelPos,digVars.flyHeight)
 	turtle.select(1)
-	while turtle.getItemCount < 32 do
+	while turtle.getItemCount() < 32 do
 		turtle.dropDown()
 		turtle.suckDown()
 	end
