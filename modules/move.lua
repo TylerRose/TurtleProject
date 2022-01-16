@@ -172,6 +172,11 @@ end
 
 function faceDir(direction)
 	print("Turning to: "..direction.." - current: "..facing)
+	while not (direction == facing) do
+		turnRight(1)
+	end
+end
+	print("Turning to: "..direction.." - current: "..facing)
 	while not direction == facing do		
 		turnRight(1)
 	end
