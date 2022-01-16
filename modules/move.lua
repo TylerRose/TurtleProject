@@ -35,6 +35,16 @@ function turnRight(a)
 	print("Now Facing " .. facing)
 end
 
+function faceDir(direction)
+	if direction == facing then
+		return
+	end
+	print("Turning to: "..direction.." - current: "..facing)
+	while not (direction == facing) do
+		turnRight(1)
+	end
+end
+
 function aboutFace()
     turnLeft(2)
 end
@@ -168,16 +178,6 @@ function uTurnRight(doDig)
     turnRight(1)
     forward(1,doDig)
     turnRight(1)
-end
-
-function faceDir(direction)
-	if direction == facing then
-		return
-	end
-	print("Turning to: "..direction.." - current: "..facing)
-	while not (direction == facing) do
-		turnRight(1)
-	end
 end
 
 --Complex move functions
