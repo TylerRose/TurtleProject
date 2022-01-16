@@ -171,16 +171,9 @@ function uTurnRight(doDig)
 end
 
 function faceDir(direction)
-	if not direction == facing then
-		print("Turning to: "..direction.." - current: "..facing)
-		turnCount = 0
-		while not (direction == facing) do
-			turnRight(1)
-			turnCount = turnCount + 1		
-			if turnCount == 5 then
-				direction = nil
-			end
-		end
+	print("Turning to: "..direction.." - current: "..move.facing)
+	while not direction == move.facing do		
+		move.turnRight(1)
 	end
 end
 
