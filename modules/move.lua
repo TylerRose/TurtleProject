@@ -171,6 +171,9 @@ function uTurnRight(doDig)
 end
 
 function faceDir(direction)
+	if direction == facing then
+		return
+	end
 	print("Turning to: "..direction.." - current: "..facing)
 	while not (direction == facing) do
 		turnRight(1)
