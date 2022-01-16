@@ -55,7 +55,7 @@ function forward(a, doDig)
 			end
 		end
 	else
-		backward(a*-1)
+		backward(a*-1, doDig)
 	end
 end
 
@@ -107,7 +107,7 @@ function backward(a, doDig)
 		forward(a,doDig)
 		aboutFace()
 	else
-		forward(a*-1)
+		forward(a*-1, doDig)
 	end
 end
 
