@@ -56,6 +56,9 @@ function forward(a, doDig)
 			if not turtle.forward() then
 				if doDig then
 					blocked, meta = turtle.inspect()
+					while meta.name == "minecraft:gravel" or meta.name == "minecraft:sand" do
+						dig.digFront()
+					end
 					while meta.name == "computercraft:turtle_advanced" do 
 						print("Avoiding Friendly Fire")
 					end
